@@ -55,7 +55,7 @@ CUSTOM_TEMPLATES_ENABLED=false
 ```yaml
 services:
   remnawave-subscription-page:
-    image: aliquamsiderea/remnawave-subscription-page-templates:1.0.0
+    image: aliquamsiderea/remnawave-subscription-page-templates:3.0.0
     container_name: remnawave-subscription-page
     hostname: remnawave-subscription-page
     restart: always
@@ -216,7 +216,7 @@ CUSTOM_TEMPLATES_CONFIG_PATH=/opt/app/templates/template-injector.yml
 ```yaml
 services:
   remnawave-subscription-page:
-    image: aliquamsiderea/remnawave-subscription-page-templates:1.0.0
+    image: aliquamsiderea/remnawave-subscription-page-templates:3.0.0
     container_name: remnawave-subscription-page
     hostname: remnawave-subscription-page
     restart: always
