@@ -1,6 +1,6 @@
 ## Remnawave Subscription Page
 
-Learn more about Remnawave [here](https://remna.st/).
+Learn more about Remnawave [here](https://docs.rw/).
 
 # Contributors
 

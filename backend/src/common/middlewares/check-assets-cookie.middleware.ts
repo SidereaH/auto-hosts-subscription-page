@@ -12,33 +12,31 @@ export function checkAssetsCookieMiddleware(
     res: Response,
     next: NextFunction,
 ) {
-    if (req.path.startsWith('/assets') || req.path.startsWith('/locales')) {
-        const secret = process.env.INTERNAL_JWT_SECRET;
+    const secret = process.env.INTERNAL_JWT_SECRET;
 
-        if (!secret) {
-            logger.error('INTERNAL_JWT_SECRET is not set');
-            res.socket?.destroy();
+    if (!secret) {
+        logger.error('INTERNAL_JWT_SECRET is not set');
+        res.socket?.destroy();
 
-            return;
-        }
+        return;
+    }
 
-        if (!req.cookies.session) {
-            logger.debug('No session cookie found');
-            res.socket?.destroy();
+    if (!req.cookies.session) {
+        logger.debug('No session cookie found');
+        res.socket?.destroy();
 
-            return;
-        }
+        return;
+    }
 
-        try {
-            const jwtPayload = jwt.verify(req.cookies.session, secret);
+    try {
+        const jwtPayload = jwt.verify(req.cookies.session, secret);
 
-            req.user = jwtPayload as unknown as IJwtPayload;
-        } catch (error) {
-            logger.debug(error);
-            res.socket?.destroy();
+        req.user = jwtPayload as unknown as IJwtPayload;
+    } catch (error) {
+        logger.debug(error);
+        res.socket?.destroy();
 
-            return;
-        }
+        return;
     }
 
     return next();
